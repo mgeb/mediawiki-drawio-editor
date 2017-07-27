@@ -194,7 +194,16 @@ class DrawioEditor {
         $output  = '<div class="DrawioEditorInfoBox" style="border-color:red;">';
         $output .= '<p style="color: red;">DrawioEditor Usage Error:<br/>'.htmlspecialchars($msg).'</p>';
 	$output .= '</div>';
-
+        
+        /* link the image to the ParserOutput, so that the mediawiki knows that it is used by the hosting page (through the DrawioEditor extension). */
+        if ($img)
+        {
+          $img_title = $img->getTitle();        
+          $db_key = $img_title->getDBkey();        
+          $parser_output = $parser->getOutput();        
+          $parser_output->addImage($db_key);
+        }
+        
         return array($output, 'isHTML'=>true, 'noparse'=>true);
     }
 }
