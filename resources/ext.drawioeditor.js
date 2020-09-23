@@ -46,7 +46,7 @@ function DrawioEditor(id, filename, type, interactive, updateHeight, updateWidth
     this.iframeOverlay.hide();
  
     this.iframe = $('<iframe>', {
-        src: 'https://www.draw.io/?embed=1&proto=json&spin=1&analytics=0&db=0&gapi=0&od=0&picker=0',
+        src: 'https://embed.diagrams.net/?embed=1&proto=json&spin=1&analytics=0&db=0&gapi=0&od=0&picker=0',
 	id: 'drawio-iframe-' + id,
 	class: 'DrawioEditorIframe'
     })
@@ -101,7 +101,7 @@ DrawioEditor.prototype.updateImage = function (imageinfo) {
 }
 
 DrawioEditor.prototype.sendMsgToIframe = function(data) {
-    this.iframeWindow.postMessage(JSON.stringify(data), 'https://www.draw.io');
+    this.iframeWindow.postMessage(JSON.stringify(data), 'https://embed.diagrams.net');
 }
 
 DrawioEditor.prototype.showDialog = function(title, message) {
@@ -304,7 +304,7 @@ window.editDrawio = function(id, filename, type, updateHeight, updateWidth, upda
 
 function drawioHandleMessage(e) {
     // we only act on event coming from draw.io iframes
-    if (e.origin != 'https://www.draw.io')
+    if (e.origin != 'https://embed.diagrams.net')
         return;
     
     if (!editor)
@@ -339,4 +339,3 @@ function drawioHandleMessage(e) {
 };
 
 window.addEventListener('message', drawioHandleMessage);
-
