@@ -103,7 +103,7 @@ class DrawioEditor {
 
         $css_img_height = $opt_height === 'chart' ? $img_height : $opt_height;
         $css_img_width = $opt_width === 'chart' ? $img_width : $opt_width;
-        $css_img_max_width = $opt_max_width === 'chart' ? $img_width : $opt_max_width;
+        $css_img_max_width = $opt_max_width === 'chart' ? 'fit-content' : $opt_max_width;
 
         /* check for conditions that should or will prevent an edit of the chart */
         $readonly = (!$wgEnableUploads
