@@ -149,7 +149,7 @@ class DrawioEditor {
 
 	if ($opt_interactive)
         {
-            $img_fmt = '<object id="drawio-img-%s" data="%s" type="text/svg+xml" style="%s"></object>';
+            $img_fmt = '<object id="drawio-img-%s" data="%s" type="image/svg+xml" style="%s"></object>';
             $img_html = sprintf($img_fmt, $id, $img_url_ts, $img_style);
         } else {
             $img_fmt = '<img id="drawio-img-%s" src="%s" title="%s" alt="%s" style="%s"></img>';
