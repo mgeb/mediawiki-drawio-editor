@@ -40,7 +40,7 @@ class DrawioEditor {
         global $wgDrawioEditorImageInteractive;
         
         /* disable caching before any output is generated */
-        $parser->disableCache();
+        $parser->getOutput()->updateCacheExpiry(0);
 
 	/* parse named arguments */
 	$opts = array();
